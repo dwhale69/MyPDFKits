@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Convert PDF Online Free — PDF to Images & Images to PDF | MyPDFkits</title><meta name="description" content="Convert PDF pages to PNG or JPG images, or combine multiple images into a PDF. Fast, free, and 100% private — no files leave your browser." /><meta name="keywords" content="convert PDF to image, PDF to PNG, PDF to JPG, images to PDF, convert PDF online free" /><link rel="canonical" href="https://mypdfkits.com/tools/convert.html" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MyPDFkits PDF Converter","url":"https://mypdfkits.com/tools/convert.html","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0"}}</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="../assets/css/style.css" /><style>.mode-tabs { display: flex; gap: 0; background: var(--bg-secondary); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 4px; }
+    .mode-tab { flex: 1; padding: 10px 16px; border-radius: var(--radius-md); text-align: center; font-size: 0.875rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all var(--t-fast); }
+    .mode-tab.active { background: var(--gradient-primary); color: #fff; }
+    .preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+    .preview-img { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-card); }
+    .preview-img img { width: 100%; height: 130px; object-fit: contain; background: #fff; display: block; }
+    .preview-img-label { padding: 6px 8px; font-size: 0.7rem; color: var(--text-muted); text-align: center; background: var(--bg-card); }
+  </style>
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orb bg-orb-2" aria-hidden="true"></div><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden="true"><rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7.25" fill="#0A0A0A"/><path d="M10 8h8l5 5v11a1 1 0 01-1 1H10a1 1 0 01-1-1V9a1 1 0 011-1z" stroke="white" stroke-width="1.4" fill="none"/><path d="M18 8v4a1 1 0 001 1h4" stroke="white" stroke-width="1.4" fill="none"/><line x1="12.5" y1="17" x2="19.5" y2="17" stroke="white" stroke-width="1.4" stroke-linecap="round"/><line x1="12.5" y1="20" x2="17" y2="20" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg><span>MyPDF<span class="logo-accent">kits</span></span></a><div class="nav-links"><a href="../index.html#tools">All Tools</a><a href="merge.html">Merge</a><a href="compress.html">Compress</a><a href="edit.html">Edit</a></div><button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</nav>
+<div class="nav-mobile"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="merge.html">Merge PDF</a><a href="split.html">Split PDF</a>
+</div><header class="tool-hero"><div class="container"><div class="breadcrumb"><a href="../index.html">Home</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg><span>Convert PDF</span></div><div class="tool-hero-icon"><svg class="ico" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h1 class="display-2">Convert PDF Online</h1><p class="body-lg mt-2">Turn PDF pages into PNG or JPG images, or combine multiple images into a single PDF document. 100% browser-based.</p></div>
+</header><main style="padding: 0 0 80px; position:relative; z-index:1;"><div class="container"><div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;"><!-- Mode Switch --><div class="mode-tabs"><div class="mode-tab active" id="tabPdfToImg" onclick="switchMode('pdf2img')">PDF to Images</div><div class="mode-tab" id="tabImgToPdf" onclick="switchMode('img2pdf')">Images to PDF</div></div><!-- PDF Images --><div id="panePdf2img"><div class="upload-zone" id="uploadZonePdf"><input type="file" id="fileInputPdf" accept=".pdf" /><div class="upload-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg></div><div class="upload-title">Drop a PDF file here</div><p class="upload-hint">or <b>click to browse</b></p><div class="upload-formats"><span class="format-tag">PDF</span></div></div><div id="pdf2imgControls" class="hidden"><div class="controls-panel" style="margin-bottom:16px;"><div class="controls-title">Export Options</div><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;"><div style="flex:1;min-width:140px;"><div class="control-label">Format</div><div class="radio-group"><div class="radio-btn active" id="fmtPng" onclick="setImgFmt('png')">PNG</div><div class="radio-btn" id="fmtJpg" onclick="setImgFmt('jpg')">JPG</div></div></div><div style="flex:1;min-width:140px;"><div class="control-label">Scale <span id="scaleVal">1.5x</span></div><input type="range" id="scaleRange" min="1" max="3" step="0.5" value="1.5" oninput="document.getElementById('scaleVal').textContent=this.value+'x'" /></div></div><button class="btn btn-primary w-full mt-4" onclick="convertPdfToImages()">Convert & Download Images</button></div><div id="imgPreviewGrid" class="preview-grid"></div></div></div><!-- Images PDF --><div id="paneImg2pdf" class="hidden"><div class="upload-zone" id="uploadZoneImg"><input type="file" id="fileInputImg" accept="image/*" multiple /><div class="upload-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg></div><div class="upload-title">Drop images here</div><p class="upload-hint">or <b>click to browse</b> — PNG, JPG, WebP supported</p><div class="upload-formats"><span class="format-tag">PNG</span><span class="format-tag">JPG</span><span class="format-tag">WebP</span></div></div><div id="img2pdfControls" class="hidden"><div class="controls-panel"><div class="controls-title">PDF Options</div><div style="display:flex;gap:16px;flex-wrap:wrap;"><div style="flex:1;min-width:140px;"><div class="control-label">Page Size</div><select id="pageSizeSel"><option value="a4">A4 (210 × 297 mm)</option><option value="letter">Letter (8.5 × 11 in)</option><option value="fit">Fit to image</option></select></div><div style="flex:1;min-width:140px;"><div class="control-label">Orientation</div><div class="radio-group"><div class="radio-btn active" id="orientPort" onclick="setOrient('portrait')">Portrait</div><div class="radio-btn" id="orientLand" onclick="setOrient('landscape')">Landscape</div></div></div></div><div id="imgFileList" class="file-list mt-4"></div><div style="display:flex;gap:8px;margin-top:12px;"><button class="btn btn-secondary btn-sm" onclick="document.getElementById('fileInputImg').click()">+ Add More</button><button class="btn btn-primary" onclick="convertImagesToPdf()" style="margin-left:auto;">Convert to PDF</button></div></div></div></div></div></div>
+</main><section style="padding: 0 0 80px; position:relative; z-index:1;"><div class="container"><div style="max-width:800px;margin:0 auto;"><h2 class="heading-1 mb-4">More PDF Tools</h2><div class="related-grid"><a href="edit.html"      class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Edit PDF</span></a><a href="compress.html"  class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Compress PDF</span></a><a href="merge.html"     class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Merge PDF</span></a><a href="annotate.html"  class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Annotate PDF</span></a><a href="watermark.html" class="related-card"><span class="related-card-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span><span class="related-card-name">Watermark PDF</span></a><a href="sign.html"      class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Sign PDF</span></a></div></div></div>
+</section><footer><div class="container"><div class="footer-bottom"><a href="../index.html" style="display:flex;align-items:center;gap:8px;font-weight:700">MyPDF<span class="logo-accent">kits</span></a><span>© 2026 MyPDFkits — Free, private, browser-based PDF tools.</span>
+</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+let mode = 'pdf2img', imgFmt = 'png', orient = 'portrait';
+let imgFiles = [];
+
+function switchMode(m) {
+  mode = m;
+  document.getElementById('panePdf2img').classList.toggle('hidden', m !== 'pdf2img');
+  document.getElementById('paneImg2pdf').classList.toggle('hidden', m !== 'img2pdf');
+  document.getElementById('tabPdfToImg').classList.toggle('active', m === 'pdf2img');
+  document.getElementById('tabImgToPdf').classList.toggle('active', m === 'img2pdf');
+}
+
+function setImgFmt(f) {
+  imgFmt = f;
+  document.getElementById('fmtPng').classList.toggle('active', f === 'png');
+  document.getElementById('fmtJpg').classList.toggle('active', f === 'jpg');
+}
+
+function setOrient(o) {
+  orient = o;
+  document.getElementById('orientPort').classList.toggle('active', o === 'portrait');
+  document.getElementById('orientLand').classList.toggle('active', o === 'landscape');
+}
+
+// PDF Images
+setupUploadZone(document.getElementById('uploadZonePdf'), document.getElementById('fileInputPdf'), async ([file]) => {
+  if (!file.name.endsWith('.pdf')) { showToast('Please upload a PDF', 'error'); return; }
+  window._pdfFile = file;
+  document.getElementById('uploadZonePdf').style.display = 'none';
+  document.getElementById('pdf2imgControls').classList.remove('hidden');
+  showToast('PDF ready — choose format and convert', 'success');
+});
+
+async function convertPdfToImages() {
+  if (!window._pdfFile) return;
+  showToast('Converting pages to images…', 'info');
+  try {
+    const buf = await window._pdfFile.arrayBuffer();
+    const doc = await pdfjsLib.getDocument({ data: buf }).promise;
+    const scale = parseFloat(document.getElementById('scaleRange').value);
+    const grid = document.getElementById('imgPreviewGrid');
+    grid.innerHTML = '';
+
+    for (let i = 1; i <= doc.numPages; i++) {
+      const page = await doc.getPage(i);
+      const vp = page.getViewport({ scale });
+      const c = document.createElement('canvas');
+      c.width = vp.width; c.height = vp.height;
+      await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+
+      const mimeType = imgFmt === 'jpg' ? 'image/jpeg' : 'image/png';
+      const quality = imgFmt === 'jpg' ? 0.92 : 1;
+      const dataUrl = c.toDataURL(mimeType, quality);
+
+      // Preview
+      const div = document.createElement('div');
+      div.className = 'preview-img';
+      const img = document.createElement('img');
+      img.src = dataUrl;
+      div.appendChild(img);
+      div.innerHTML += `<div class="preview-img-label">Page ${i}</div>`;
+      grid.appendChild(div);
+
+      // Download
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = `page-${i}-mypdfkits.${imgFmt}`;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      await new Promise(r => setTimeout(r, 200));
+    }
+    showToast(`${doc.numPages} images downloaded!`, 'success');
+  } catch(err) { console.error(err); showToast('Conversion failed', 'error'); }
+}
+
+// Images PDF
+setupUploadZone(document.getElementById('uploadZoneImg'), document.getElementById('fileInputImg'), async (files) => {
+  const imgs = files.filter(f => f.type.startsWith('image/'));
+  if (!imgs.length) { showToast('Please upload image files', 'error'); return; }
+  imgs.forEach(f => imgFiles.push(f));
+  document.getElementById('uploadZoneImg').style.display = 'none';
+  document.getElementById('img2pdfControls').classList.remove('hidden');
+  renderImgList();
+  showToast(`${imgs.length} image${imgs.length > 1 ? 's' : ''} added`, 'success');
+});
+
+function renderImgList() {
+  const list = document.getElementById('imgFileList');
+  list.innerHTML = '';
+  imgFiles.forEach((f, i) => {
+    const item = document.createElement('div');
+    item.className = 'file-item';
+    item.innerHTML = `<span class="file-icon"></span><div class="file-info"><div class="file-name">${f.name}</div><div class="file-size">${formatSize(f.size)}</div></div><button class="file-remove" onclick="imgFiles.splice(${i},1);renderImgList()"></button>`;
+    list.appendChild(item);
+  });
+}
+
+async function convertImagesToPdf() {
+  if (!imgFiles.length) { showToast('Add images first', 'error'); return; }
+  showToast('Building PDF…', 'info');
+  try {
+    const { PDFDocument, degrees } = PDFLib;
+    const doc = await PDFDocument.create();
+    const pageSize = document.getElementById('pageSizeSel').value;
+
+    for (const file of imgFiles) {
+      const buf = await file.arrayBuffer();
+      let embedded;
+      if (file.type === 'image/png') embedded = await doc.embedPng(buf);
+      else {
+        // Convert to PNG via canvas
+        const url = URL.createObjectURL(file);
+        const img = new Image(); img.src = url;
+        await new Promise(r => img.onload = r);
+        const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+        c.getContext('2d').drawImage(img, 0, 0);
+        const pngBuf = await (await fetch(c.toDataURL('image/png'))).arrayBuffer();
+        embedded = await doc.embedPng(pngBuf);
+        URL.revokeObjectURL(url);
+      }
+
+      const { width: iw, height: ih } = embedded;
+      let pw, ph;
+      if (pageSize === 'fit') { pw = iw; ph = ih; }
+      else if (pageSize === 'a4') { pw = 595; ph = 842; }
+      else { pw = 612; ph = 792; }
+      if (orient === 'landscape') { [pw, ph] = [ph, pw]; }
+
+      const page = doc.addPage([pw, ph]);
+      const scale = Math.min(pw / iw, ph / ih);
+      const dx = (pw - iw * scale) / 2, dy = (ph - ih * scale) / 2;
+      page.drawImage(embedded, { x: dx, y: dy, width: iw * scale, height: ih * scale });
+    }
+
+    const bytes = await doc.save();
+    downloadFile(bytes, 'images-mypdfkits.pdf');
+    showToast(`PDF created with ${imgFiles.length} pages!`, 'success');
+  } catch(err) { console.error(err); showToast('Conversion failed', 'error'); }
+}
+</script>
+</body>
+</html>

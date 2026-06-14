@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Watermark PDF Online Free — Add Text or Image Watermark | MyPDFkits</title><meta name="description" content="Add text or image watermarks to every page of your PDF. Control opacity, position, rotation, and font. Free, instant, and 100% private." /><meta name="keywords" content="watermark PDF online, add watermark to PDF, text watermark PDF, image watermark PDF, stamp PDF free" /><link rel="canonical" href="https://mypdfkits.com/tools/watermark.html" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MyPDFkits PDF Watermark","url":"https://mypdfkits.com/tools/watermark.html","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0"}}</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="../assets/css/style.css" /><style>.preview-box {
+      background: var(--bg-secondary); border: 1px solid var(--border-card);
+      border-radius: var(--radius-md); padding: 24px;
+      position: relative; min-height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .watermark-preview-text {
+      pointer-events: none; font-weight: 700; opacity: 0.3;
+      user-select: none; white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orb bg-orb-2" aria-hidden="true"></div><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden="true"><rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7.25" fill="#0A0A0A"/><path d="M10 8h8l5 5v11a1 1 0 01-1 1H10a1 1 0 01-1-1V9a1 1 0 011-1z" stroke="white" stroke-width="1.4" fill="none"/><path d="M18 8v4a1 1 0 001 1h4" stroke="white" stroke-width="1.4" fill="none"/><line x1="12.5" y1="17" x2="19.5" y2="17" stroke="white" stroke-width="1.4" stroke-linecap="round"/><line x1="12.5" y1="20" x2="17" y2="20" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg><span>MyPDF<span class="logo-accent">kits</span></span></a><div class="nav-links"><a href="../index.html#tools">All Tools</a><a href="protect.html">Protect</a><a href="sign.html">Sign</a><a href="annotate.html">Annotate</a></div><button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</nav>
+<div class="nav-mobile"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="protect.html">Protect PDF</a><a href="sign.html">Sign PDF</a>
+</div><header class="tool-hero"><div class="container"><div class="breadcrumb"><a href="../index.html">Home</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg><span>Watermark PDF</span></div><div class="tool-hero-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div><h1 class="display-2">Watermark PDF Online</h1><p class="body-lg mt-2">Stamp every page of your PDF with a custom text or image watermark. Set opacity, rotation, position, and font size — free and private.</p></div>
+</header><main style="padding: 0 0 80px; position:relative; z-index:1;"><div class="container"><div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;"><div class="upload-zone" id="uploadZone"><input type="file" id="fileInput" accept=".pdf" /><div class="upload-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg></div><div class="upload-title">Drop your PDF here</div><p class="upload-hint">or <b>click to browse</b></p><div class="upload-formats"><span class="format-tag">PDF</span></div></div><div id="controlsWrap" class="hidden"><div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="watermark-layout"><!-- Controls --><div class="controls-panel"><div class="controls-title">Watermark Settings</div><!-- Type Toggle --><div class="control-group"><div class="control-label">Type</div><div class="radio-group"><div class="radio-btn active" id="typeText" onclick="setWmType('text')">Text</div><div class="radio-btn" id="typeImage" onclick="setWmType('image')">Image</div></div></div><!-- Text Controls --><div id="textControls"><div class="control-group"><div class="control-label">Watermark Text</div><input type="text" id="wmText" value="CONFIDENTIAL" oninput="updatePreview()" /></div><div class="control-group"><div class="control-label">Font Size <span id="fontSizeVal">48</span>px</div><input type="range" id="wmFontSize" min="12" max="120" value="48" oninput="document.getElementById('fontSizeVal').textContent=this.value;updatePreview()" /></div><div class="control-group"><div class="control-label">Color</div><div style="display:flex;gap:10px;align-items:center;"><input type="color" id="wmColor" value="#000000" oninput="updatePreview()" style="width:40px;height:32px;border:none;cursor:pointer;" /><span id="wmColorHex" style="font-size:0.8125rem;color:var(--text-muted);">#000000</span></div></div></div><!-- Image Controls --><div id="imageControls" class="hidden"><div class="control-group"><div class="control-label">Watermark Image</div><label class="upload-zone" style="padding:20px;cursor:pointer;min-height:auto;"><input type="file" id="wmImageInput" accept="image/*" onchange="loadWmImage(event)" /><div style="font-size:0.875rem;color:var(--text-secondary);">Click to upload image (PNG/JPG)</div></label></div></div><!-- Common Controls --><div class="control-group"><div class="control-label">Opacity <span id="opacityVal">30</span>%</div><input type="range" id="wmOpacity" min="5" max="100" value="30" oninput="document.getElementById('opacityVal').textContent=this.value;updatePreview()" /></div><div class="control-group"><div class="control-label">Rotation <span id="rotationVal">-45</span>°</div><input type="range" id="wmRotation" min="-180" max="180" value="-45" oninput="document.getElementById('rotationVal').textContent=this.value;updatePreview()" /></div><div class="control-group"><div class="control-label">Position</div><div class="radio-group" style="display:grid;grid-template-columns:repeat(3,1fr);"><div class="radio-btn" id="posTopLeft"     onclick="setPos('tl')" style="font-size:0.75rem;">Top Left</div><div class="radio-btn active" id="posCenter" onclick="setPos('c')" style="font-size:0.75rem;">⊙ Center</div><div class="radio-btn" id="posTopRight"    onclick="setPos('tr')" style="font-size:0.75rem;">Top Right</div><div class="radio-btn" id="posBotLeft"     onclick="setPos('bl')" style="font-size:0.75rem;">Bottom Left</div><div class="radio-btn" id="posRepeat"      onclick="setPos('repeat')" style="font-size:0.75rem;">Repeat</div><div class="radio-btn" id="posBotRight"    onclick="setPos('br')" style="font-size:0.75rem;">Bottom Right</div></div></div><button class="btn btn-primary w-full mt-4" onclick="doWatermark()">Apply Watermark & Download</button></div><!-- Live Preview --><div><div class="controls-title">Preview</div><div class="preview-box" id="previewBox"><div style="width:100%;height:200px;background:white;border-radius:4px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;"><div style="position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;gap:4px;opacity:0.5;"><div style="height:6px;background:#e2e8f0;border-radius:3px;width:80%;"></div><div style="height:6px;background:#e2e8f0;border-radius:3px;width:95%;"></div><div style="height:6px;background:#e2e8f0;border-radius:3px;width:70%;"></div><div style="height:6px;background:#e2e8f0;border-radius:3px;width:88%;"></div><div style="height:6px;background:#e2e8f0;border-radius:3px;width:60%;"></div></div><div id="wmPreview" class="watermark-preview-text" style="position:absolute;font-size:32px;color:#ff0000;transform:rotate(-45deg);">CONFIDENTIAL</div></div></div><p style="font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:8px;">Live preview — watermark will be applied to every PDF page</p></div></div></div><div class="result-card hidden" id="resultCard"><div class="result-icon"><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="result-title">Watermark Applied!</div><div class="result-desc" id="resultDesc">Watermark has been applied to all pages.</div><div style="display:flex;gap:12px;justify-content:center;"><button class="btn btn-primary" onclick="redownload()">Download Again</button><button class="btn btn-secondary" onclick="resetTool()">Watermark Another</button></div></div></div></div>
+</main><section style="padding: 0 0 80px; position:relative; z-index:1;"><div class="container"><div style="max-width:800px;margin:0 auto;"><h2 class="heading-1 mb-4">More PDF Tools</h2><div class="related-grid"><a href="protect.html"  class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Protect PDF</span></a><a href="sign.html"     class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Sign PDF</span></a><a href="annotate.html" class="related-card"><span class="related-card-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span><span class="related-card-name">Annotate PDF</span></a><a href="edit.html"     class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Edit PDF</span></a><a href="merge.html"    class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Merge PDF</span></a><a href="compress.html" class="related-card"><span class="related-card-icon"><svg class="ico" viewBox="0 0 24 24"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span><span class="related-card-name">Compress PDF</span></a></div></div></div>
+</section><footer><div class="container"><div class="footer-bottom"><a href="../index.html" style="display:flex;align-items:center;gap:8px;font-weight:700">MyPDF<span class="logo-accent">kits</span></a><span>© 2026 MyPDFkits — Free, private, browser-based PDF tools.</span>
+</div></div></footer><script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+let pdfBytes = null, resultBytes = null;
+let wmType = 'text', wmPosition = 'c';
+let wmImageBytes = null;
+
+setupUploadZone(
+  document.getElementById('uploadZone'),
+  document.getElementById('fileInput'),
+  async ([file]) => {
+    if (!file.name.endsWith('.pdf')) { showToast('Please upload a PDF', 'error'); return; }
+    pdfBytes = await file.arrayBuffer();
+    document.getElementById('uploadZone').style.display = 'none';
+    document.getElementById('controlsWrap').classList.remove('hidden');
+    updatePreview();
+    showToast('PDF ready — configure your watermark', 'success');
+  }
+);
+
+function setWmType(t) {
+  wmType = t;
+  document.getElementById('typeText').classList.toggle('active', t === 'text');
+  document.getElementById('typeImage').classList.toggle('active', t === 'image');
+  document.getElementById('textControls').classList.toggle('hidden', t !== 'text');
+  document.getElementById('imageControls').classList.toggle('hidden', t !== 'image');
+}
+
+function setPos(p) {
+  wmPosition = p;
+  ['posTopLeft','posCenter','posTopRight','posBotLeft','posRepeat','posBotRight'].forEach(id => document.getElementById(id).classList.remove('active'));
+  const map = { tl:'posTopLeft', c:'posCenter', tr:'posTopRight', bl:'posBotLeft', repeat:'posRepeat', br:'posBotRight' };
+  document.getElementById(map[p]).classList.add('active');
+  updatePreview();
+}
+
+function updatePreview() {
+  const preview = document.getElementById('wmPreview');
+  const text     = document.getElementById('wmText')?.value || 'WATERMARK';
+  const size     = parseInt(document.getElementById('wmFontSize')?.value || 48);
+  const color    = document.getElementById('wmColor')?.value || '#ff0000';
+  const opacity  = parseInt(document.getElementById('wmOpacity')?.value || 30) / 100;
+  const rotation = parseInt(document.getElementById('wmRotation')?.value || -45);
+  document.getElementById('wmColorHex').textContent = color;
+
+  if (wmType === 'text') {
+    preview.style.display = 'block';
+    preview.textContent = text;
+    preview.style.fontSize = Math.max(16, size * 0.65) + 'px';
+    preview.style.color = color;
+    preview.style.opacity = opacity;
+    preview.style.transform = `rotate(${rotation}deg)`;
+  } else {
+    if (wmImageBytes) {
+      const url = URL.createObjectURL(new Blob([wmImageBytes]));
+      preview.style.display = 'block';
+      preview.innerHTML = `<img src="${url}" style="max-width:120px;max-height:80px;opacity:${opacity};transform:rotate(${rotation}deg);" />`;
+    }
+  }
+}
+
+function loadWmImage(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => { wmImageBytes = ev.target.result; updatePreview(); };
+  reader.readAsArrayBuffer(file);
+}
+
+function getWmPosition(pageWidth, pageHeight) {
+  const positions = {
+    tl:    { x: pageWidth * 0.1, y: pageHeight * 0.9 },
+    c:     { x: pageWidth * 0.5, y: pageHeight * 0.5 },
+    tr:    { x: pageWidth * 0.9, y: pageHeight * 0.9 },
+    bl:    { x: pageWidth * 0.1, y: pageHeight * 0.1 },
+    br:    { x: pageWidth * 0.9, y: pageHeight * 0.1 },
+    repeat:{ x: pageWidth * 0.5, y: pageHeight * 0.5 },
+  };
+  return positions[wmPosition] || positions.c;
+}
+
+async function doWatermark() {
+  if (!pdfBytes) return;
+  showToast('Applying watermark…', 'info');
+  try {
+    const { PDFDocument, rgb, degrees, StandardFonts } = PDFLib;
+    const doc = await PDFDocument.load(pdfBytes);
+    const pages = doc.getPages();
+    const opacity = parseInt(document.getElementById('wmOpacity').value) / 100;
+    const rotation = parseInt(document.getElementById('wmRotation').value);
+
+    if (wmType === 'text') {
+      const font = await doc.embedFont(StandardFonts.HelveticaBold);
+      const text  = document.getElementById('wmText').value || 'WATERMARK';
+      const size  = parseInt(document.getElementById('wmFontSize').value);
+      const color = document.getElementById('wmColor').value;
+      const r = parseInt(color.slice(1,3),16)/255;
+      const g = parseInt(color.slice(3,5),16)/255;
+      const b = parseInt(color.slice(5,7),16)/255;
+
+      for (const page of pages) {
+        const { width, height } = page.getSize();
+        const placements = wmPosition === 'repeat'
+          ? [{ x: width*0.25, y: height*0.7 }, { x: width*0.65, y: height*0.4 }, { x: width*0.4, y: height*0.1 }]
+          : [getWmPosition(width, height)];
+
+        placements.forEach(({ x, y }) => {
+          const textWidth = font.widthOfTextAtSize(text, size);
+          page.drawText(text, {
+            x: x - textWidth / 2, y,
+            size, font,
+            color: rgb(r, g, b),
+            opacity,
+            rotate: degrees(rotation),
+          });
+        });
+      }
+    } else if (wmType === 'image' && wmImageBytes) {
+      let embImg;
+      const header = new Uint8Array(wmImageBytes.slice(0,4));
+      const isPng = header[0] === 0x89 && header[1] === 0x50;
+      try { embImg = isPng ? await doc.embedPng(wmImageBytes) : await doc.embedJpg(wmImageBytes); }
+      catch { embImg = await doc.embedPng(wmImageBytes); }
+
+      const imgW = 150, imgH = 80;
+      for (const page of pages) {
+        const { width, height } = page.getSize();
+        const { x, y } = getWmPosition(width, height);
+        page.drawImage(embImg, { x: x - imgW/2, y: y - imgH/2, width: imgW, height: imgH, opacity, rotate: degrees(rotation) });
+      }
+    } else {
+      showToast(wmType === 'image' ? 'Upload a watermark image first' : 'Enter watermark text', 'error'); return;
+    }
+
+    resultBytes = await doc.save();
+    downloadFile(resultBytes, 'watermarked-mypdfkits.pdf');
+    document.getElementById('resultDesc').textContent = `Watermark applied to ${pages.length} page${pages.length>1?'s':''} · ${formatSize(resultBytes.byteLength)}`;
+    document.getElementById('controlsWrap').classList.add('hidden');
+    document.getElementById('resultCard').classList.remove('hidden');
+    showToast('Watermark applied!', 'success');
+  } catch(err) { console.error(err); showToast('Error applying watermark', 'error'); }
+}
+
+function redownload() { if (resultBytes) downloadFile(resultBytes, 'watermarked-mypdfkits.pdf'); }
+
+function resetTool() {
+  pdfBytes = null; resultBytes = null; wmImageBytes = null;
+  document.getElementById('resultCard').classList.add('hidden');
+  document.getElementById('controlsWrap').classList.add('hidden');
+  document.getElementById('uploadZone').style.display = '';
+}
+
+// Responsive grid
+function checkGrid() {
+  const layout = document.querySelector('.watermark-layout');
+  if (layout) layout.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '1fr 1fr';
+}
+checkGrid(); window.addEventListener('resize', checkGrid);
+</script>
+</body>
+</html>

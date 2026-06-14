@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Annotate PDF Online Free — Highlight, Draw & Add Notes | MyPDFkits</title><meta name="description" content="Annotate any PDF in your browser — highlight text, add sticky notes, draw freehand, insert arrows and shapes. Free and 100% private." /><meta name="keywords" content="annotate PDF online, highlight PDF, add notes to PDF, PDF annotation free, draw on PDF" /><link rel="canonical" href="https://mypdfkits.com/tools/annotate.html" /><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MyPDFkits PDF Annotator","url":"https://mypdfkits.com/tools/annotate.html","applicationCategory":"UtilitiesApplication","offers":{"@type":"Offer","price":"0"}}</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="../assets/css/style.css" /><style>.tool-btn { padding: 8px 12px; border-radius: var(--radius-sm); font-size: 0.8125rem; font-weight: 600; border: 1px solid var(--border-card); background: var(--bg-secondary); color: var(--text-secondary); transition: all var(--t-fast); cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .tool-btn.active, .tool-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(0,212,255,0.08); }
+    .annotation-canvas-wrap { position: relative; display: inline-block; }
+    .annotation-overlay { position: absolute; top: 0; left: 0; }
+  </style>
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orb bg-orb-1" aria-hidden="true"></div><nav class="navbar"><div class="nav-inner"><a href="../index.html" class="nav-logo"><svg viewBox="0 0 32 32" fill="none" width="28" height="28" aria-hidden="true"><rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7.25" fill="#0A0A0A"/><path d="M10 8h8l5 5v11a1 1 0 01-1 1H10a1 1 0 01-1-1V9a1 1 0 011-1z" stroke="white" stroke-width="1.4" fill="none"/><path d="M18 8v4a1 1 0 001 1h4" stroke="white" stroke-width="1.4" fill="none"/><line x1="12.5" y1="17" x2="19.5" y2="17" stroke="white" stroke-width="1.4" stroke-linecap="round"/><line x1="12.5" y1="20" x2="17" y2="20" stroke="white" stroke-width="1.4" stroke-linecap="round"/></svg><span>MyPDF<span class="logo-accent">kits</span></span></a><div class="nav-links"><a href="../index.html#tools">All Tools</a><a href="edit.html">Edit</a><a href="sign.html">Sign</a><a href="protect.html">Protect</a></div><button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button></div>
+</nav>
+<div class="nav-mobile"><a href="../index.html">Home</a><a href="../index.html#tools">All Tools</a><a href="edit.html">Edit PDF</a><a href="sign.html">Sign PDF</a>
+</div><header class="tool-hero"><div class="container"><div class="breadcrumb"><a href="../index.html">Home</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg><span>Annotate PDF</span></div><div class="tool-hero-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div><h1 class="display-2">Annotate PDF Online</h1><p class="body-lg mt-2">Highlight text, draw freehand, add text notes and shapes directly on any PDF. All in your browser — private and free.</p></div>
+</header><main style="padding: 0 0 80px; position:relative; z-index:1;"><div class="container"><div style="max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;"><div class="upload-zone" id="uploadZone"><input type="file" id="fileInput" accept=".pdf" /><div class="upload-icon"><svg class="ico" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg></div><div class="upload-title">Drop your PDF here</div><p class="upload-hint">or <b>click to browse</b></p><div class="upload-formats"><span class="format-tag">PDF</span></div></div><div class="tool-workspace" id="workspace" style="position:relative;"><!-- Toolbar --><div class="workspace-toolbar" style="gap:8px;flex-wrap:wrap;"><div style="display:flex;gap:6px;flex-wrap:wrap;"><button class="tool-btn active" id="tbDraw"      onclick="setTool('draw')">Pen</button><button class="tool-btn"        id="tbHighlight" onclick="setTool('highlight')">Highlight</button><button class="tool-btn"        id="tbText"      onclick="setTool('text')">T Text</button><button class="tool-btn"        id="tbArrow"     onclick="setTool('arrow')">Arrow</button><button class="tool-btn"        id="tbRect"      onclick="setTool('rect')">Box</button><button class="tool-btn"        id="tbEraser"    onclick="setTool('eraser')">Undo Last</button></div><div style="display:flex;gap:8px;align-items:center;margin-left:auto;"><input type="color" id="annColor" value="#FFDD00" title="Color" style="width:32px;height:28px;border:none;background:none;cursor:pointer;" /><input type="range" id="annSize" min="1" max="20" value="4" title="Size" style="width:80px;" /><button class="btn btn-primary btn-sm" onclick="downloadAnnotated()">Download</button></div></div><!-- Page Nav --><div style="padding:10px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;"><button class="btn btn-secondary btn-sm" onclick="prevPage()">Prev</button><span id="pageInfo" style="font-size:0.875rem;color:var(--text-secondary);">Page 1 of 1</span><button class="btn btn-secondary btn-sm" onclick="nextPage()">Next </button></div><!-- Canvas --><div class="pdf-viewer" id="pdfViewer" style="min-height:400px;"><div class="annotation-canvas-wrap" id="canvasWrap"><canvas id="pdfCanvas"></canvas><canvas id="annCanvas" class="annotation-overlay"></canvas></div></div><div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div><span style="color:var(--text-secondary);font-size:0.875rem">Loading PDF…</span></div></div></div></div>
+</main><section style="padding: 0 0 80px; position:relative; z-index:1;"><div class="container"><div style="max-width:960px;margin:0 auto;"><h2 class="heading-1 mb-4">More PDF Tools</h2><div class="related-grid"><a href="edit.html"     class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Edit PDF</span></a><a href="sign.html"     class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Sign PDF</span></a><a href="protect.html"  class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Protect PDF</span></a><a href="merge.html"    class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Merge PDF</span></a><a href="split.html"    class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Split PDF</span></a><a href="watermark.html"class="related-card"><span class="related-card-icon"></span><span class="related-card-name">Watermark PDF</span></a></div></div></div>
+</section><footer><div class="container"><div class="footer-bottom"><a href="../index.html" style="display:flex;align-items:center;gap:8px;font-weight:700">MyPDF<span class="logo-accent">kits</span></a><span>© 2026 MyPDFkits — Free, private, browser-based PDF tools.</span>
+</div></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+let pdfJsDoc = null, pdfBytes = null, currentPage = 1, totalPages = 1;
+let activeTool = 'draw', isDrawing = false, drawStart = { x: 0, y: 0 };
+let drawPoints = [];
+let annotations = {}; // page -> [{type,...}]
+
+const pdfCanvas  = document.getElementById('pdfCanvas');
+const annCanvas  = document.getElementById('annCanvas');
+const pdfCtx     = pdfCanvas.getContext('2d');
+const annCtx     = annCanvas.getContext('2d');
+
+setupUploadZone(
+  document.getElementById('uploadZone'),
+  document.getElementById('fileInput'),
+  async ([file]) => {
+    if (!file.name.endsWith('.pdf')) { showToast('Please upload a PDF', 'error'); return; }
+    showLoading(true);
+    pdfBytes = await file.arrayBuffer();
+    pdfJsDoc = await pdfjsLib.getDocument({ data: pdfBytes.slice(0) }).promise;
+    totalPages = pdfJsDoc.numPages; currentPage = 1; annotations = {};
+    document.getElementById('workspace').classList.add('visible');
+    document.getElementById('uploadZone').style.display = 'none';
+    await renderPage();
+    showLoading(false);
+    showToast('PDF loaded — pick a tool and start annotating', 'success');
+  }
+);
+
+async function renderPage() {
+  const page = await pdfJsDoc.getPage(currentPage);
+  const scale = window.innerWidth < 768 ? 0.8 : 1.4;
+  const vp = page.getViewport({ scale });
+  pdfCanvas.width = annCanvas.width = vp.width;
+  pdfCanvas.height = annCanvas.height = vp.height;
+  document.getElementById('canvasWrap').style.cssText = `width:${vp.width}px;height:${vp.height}px`;
+  await page.render({ canvasContext: pdfCtx, viewport: vp }).promise;
+  redraw();
+  document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+}
+
+function redraw() {
+  annCtx.clearRect(0, 0, annCanvas.width, annCanvas.height);
+  (annotations[currentPage] || []).forEach(a => paint(annCtx, a));
+}
+
+function paint(ctx, a) {
+  ctx.save();
+  if (a.type === 'draw') {
+    ctx.strokeStyle = a.color; ctx.lineWidth = a.size; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    a.pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+    ctx.stroke();
+  } else if (a.type === 'highlight') {
+    ctx.fillStyle = a.color + '55'; // 1/3 opacity
+    ctx.fillRect(a.x, a.y, a.w, a.h);
+  } else if (a.type === 'text') {
+    ctx.fillStyle = a.color; ctx.font = `${a.size * 3}px Inter, sans-serif`;
+    ctx.fillText(a.text, a.x, a.y);
+  } else if (a.type === 'arrow') {
+    const { x1, y1, x2, y2, color, size } = a;
+    ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = size; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    const angle = Math.atan2(y2 - y1, x2 - x1);
+    const headLen = size * 4;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI/7), y2 - headLen * Math.sin(angle - Math.PI/7));
+    ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI/7), y2 - headLen * Math.sin(angle + Math.PI/7));
+    ctx.closePath(); ctx.fill();
+  } else if (a.type === 'rect') {
+    ctx.strokeStyle = a.color; ctx.lineWidth = a.size;
+    ctx.strokeRect(a.x, a.y, a.w, a.h);
+  }
+  ctx.restore();
+}
+
+function setTool(t) {
+  if (t === 'eraser') { undoLast(); return; }
+  activeTool = t;
+  ['Draw','Highlight','Text','Arrow','Rect','Eraser'].forEach(n => {
+    document.getElementById('tb' + n)?.classList.toggle('active', 'tb' + n === 'tb' + t.charAt(0).toUpperCase() + t.slice(1));
+  });
+  annCanvas.style.cursor = t === 'text' ? 'text' : 'crosshair';
+}
+
+function undoLast() {
+  if (annotations[currentPage]?.length) { annotations[currentPage].pop(); redraw(); }
+}
+
+function getColor() { return document.getElementById('annColor').value; }
+function getSize()  { return parseInt(document.getElementById('annSize').value); }
+function getAnns()  { if (!annotations[currentPage]) annotations[currentPage] = []; return annotations[currentPage]; }
+
+annCanvas.addEventListener('mousedown', e => {
+  isDrawing = true; drawStart = { x: e.offsetX, y: e.offsetY };
+  if (activeTool === 'draw') drawPoints = [{ x: e.offsetX, y: e.offsetY }];
+  if (activeTool === 'text') {
+    const txt = prompt('Enter text:');
+    if (txt) getAnns().push({ type: 'text', x: e.offsetX, y: e.offsetY, text: txt, color: getColor(), size: getSize() });
+    redraw(); isDrawing = false;
+  }
+});
+
+annCanvas.addEventListener('mousemove', e => {
+  if (!isDrawing) return;
+  if (activeTool === 'draw') {
+    drawPoints.push({ x: e.offsetX, y: e.offsetY });
+    redraw();
+    annCtx.save(); annCtx.strokeStyle = getColor(); annCtx.lineWidth = getSize(); annCtx.lineCap = 'round'; annCtx.lineJoin = 'round';
+    annCtx.beginPath();
+    drawPoints.forEach((p, i) => i === 0 ? annCtx.moveTo(p.x, p.y) : annCtx.lineTo(p.x, p.y));
+    annCtx.stroke(); annCtx.restore();
+  } else if (activeTool === 'highlight' || activeTool === 'rect' || activeTool === 'arrow') {
+    redraw();
+    annCtx.save(); annCtx.strokeStyle = getColor(); annCtx.fillStyle = getColor() + '44'; annCtx.lineWidth = getSize();
+    const w = e.offsetX - drawStart.x, h = e.offsetY - drawStart.y;
+    if (activeTool === 'highlight') annCtx.fillRect(drawStart.x, drawStart.y, w, h);
+    else if (activeTool === 'rect')  annCtx.strokeRect(drawStart.x, drawStart.y, w, h);
+    else if (activeTool === 'arrow') { annCtx.beginPath(); annCtx.moveTo(drawStart.x, drawStart.y); annCtx.lineTo(e.offsetX, e.offsetY); annCtx.stroke(); }
+    annCtx.restore();
+  }
+});
+
+annCanvas.addEventListener('mouseup', e => {
+  if (!isDrawing) return; isDrawing = false;
+  const x = e.offsetX, y = e.offsetY;
+  if (activeTool === 'draw')      getAnns().push({ type: 'draw', pts: [...drawPoints], color: getColor(), size: getSize() });
+  else if (activeTool === 'highlight') getAnns().push({ type: 'highlight', x: drawStart.x, y: drawStart.y, w: x - drawStart.x, h: y - drawStart.y, color: getColor() });
+  else if (activeTool === 'rect') getAnns().push({ type: 'rect', x: drawStart.x, y: drawStart.y, w: x - drawStart.x, h: y - drawStart.y, color: getColor(), size: getSize() });
+  else if (activeTool === 'arrow') getAnns().push({ type: 'arrow', x1: drawStart.x, y1: drawStart.y, x2: x, y2: y, color: getColor(), size: getSize() });
+  redraw();
+});
+
+annCanvas.addEventListener('touchstart', e => { e.preventDefault(); const r = annCanvas.getBoundingClientRect(); const t = e.touches[0]; annCanvas.dispatchEvent(new MouseEvent('mousedown', { offsetX: t.clientX - r.left, offsetY: t.clientY - r.top })); }, { passive: false });
+annCanvas.addEventListener('touchmove',  e => { e.preventDefault(); const r = annCanvas.getBoundingClientRect(); const t = e.touches[0]; annCanvas.dispatchEvent(new MouseEvent('mousemove', { offsetX: t.clientX - r.left, offsetY: t.clientY - r.top })); }, { passive: false });
+annCanvas.addEventListener('touchend',   e => { e.preventDefault(); annCanvas.dispatchEvent(new MouseEvent('mouseup', { offsetX: 0, offsetY: 0 })); });
+
+async function prevPage() { if (currentPage > 1) { currentPage--; await renderPage(); } }
+async function nextPage() { if (currentPage < totalPages) { currentPage++; await renderPage(); } }
+
+async function downloadAnnotated() {
+  if (!pdfBytes) return;
+  showToast('Generating annotated PDF…', 'info');
+  try {
+    const { PDFDocument, rgb } = PDFLib;
+    const doc = await PDFDocument.load(pdfBytes);
+    const pdfPages = doc.getPages();
+
+    for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+      const anns = annotations[pageNum] || [];
+      if (!anns.length) continue;
+      const pdfPage = pdfPages[pageNum - 1];
+      const { width: pw, height: ph } = pdfPage.getSize();
+      const jpgPage = await pdfJsDoc.getPage(pageNum);
+      const vp = jpgPage.getViewport({ scale: window.innerWidth < 768 ? 0.8 : 1.4 });
+      const sx = pw / vp.width, sy = ph / vp.height;
+
+      // Render annotations to a canvas, embed as PNG
+      const c = document.createElement('canvas'); c.width = vp.width; c.height = vp.height;
+      const ctx = c.getContext('2d');
+      anns.forEach(a => paint(ctx, a));
+      const dataUrl = c.toDataURL('image/png');
+      const base64 = dataUrl.split(',')[1];
+      const imgBuf = Uint8Array.from(atob(base64), ch => ch.charCodeAt(0));
+      const embImg = await doc.embedPng(imgBuf);
+      pdfPage.drawImage(embImg, { x: 0, y: 0, width: pw, height: ph });
+    }
+
+    const bytes = await doc.save();
+    downloadFile(bytes, 'annotated-mypdfkits.pdf');
+    showToast('Annotated PDF downloaded!', 'success');
+  } catch(err) { console.error(err); showToast('Error generating PDF', 'error'); }
+}
+
+function showLoading(v) { document.getElementById('loadingOverlay').classList.toggle('visible', v); }
+</script>
+</body>
+</html>

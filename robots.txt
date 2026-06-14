@@ -1,0 +1,11 @@
+# MyPDFkits — robots.txt
+# https://mypdfkits.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mypdfkits.com/sitemap.xml
+
+# Crawl delay (optional — be gentle)
+Crawl-delay: 1
